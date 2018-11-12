@@ -1,0 +1,30 @@
+#define($content)
+<link rel="stylesheet" href="/sf/editormd/css/editormd.min.css" />
+<script src="/sf/js/config_server/page/edit.js"></script>
+
+<div class="admin-content-body">
+    <br>
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-form">
+                <div class="am-form-group am-form-group-xl">
+                    <input type="text" name="" id="name" placeholder="配置文件名" value="$!{config.configName}">
+                </div>
+                <div class="am-form-group am-form-group-xl">
+                    <input type="text" name="" id="profiles" placeholder="配置文件域" value="$!{config.profile}">
+                </div>
+                <div class="am-form-group am-form-group-lg">
+                    <textarea id="content" rows="30" placeholder="配置文件内容">$!{config.configContent}</textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-form">
+                <div class="am-form-group am-form-group-lg">
+                    <input type="submit" value="Submit" onclick="submitConfig()" class="am-btn am-btn-secondary am-btn-lg am-center">
+                </div>
+            </div>
+        </div>
+</div>
+
+#end

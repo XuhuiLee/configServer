@@ -1,0 +1,33 @@
+#define($content)
+<link rel="stylesheet" href="/sf/css/blog/page/list.css">
+<div class="admin-content-body">
+    <br>
+    <div class="am-u-lg-12 am-u-md-11 am-u-sm-centered">
+        <ul class="am-list">
+            #if($!{configList} && $!{configList.size()} > 0)
+                #foreach($config in $!{configList})
+                    <li>
+                        $!{config.configNameEncoded}
+                        <a href="/config/edit/$!{config.profile}/$!{config.configName}">
+                            <div class="am-cf am-padding-sm">
+                                    <strong class="am-fl am-cf">
+                                        $!{config.configName}
+                                    </strong>
+                                    <div class="am-fl am-cf">
+                                        &nbsp;&nbsp;[profile: $!{config.profile}]
+                                    </div>
+                                    <div class="am-fr am-cf">
+                                        version: $!{config.version}
+                                    </div>
+                            </div>
+                            <div class="am-cf am-padding-sm am-text-truncate">
+                                $!{config.configContent}
+                            </div>
+                        </a>
+                    </li>
+                #end
+            #end
+        </ul>
+    </div>
+</div>
+#end

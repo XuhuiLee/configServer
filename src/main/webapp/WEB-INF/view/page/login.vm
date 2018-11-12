@@ -1,0 +1,30 @@
+#define($content)
+<script src="/sf/js/common/md5.js"></script>
+<div class="admin-content-body">
+    <div class="header am-u-lg-4 am-u-md-8 am-u-sm-centered">
+        <div class="am-g">
+            <h1><br/>You don't have permission</h1>
+            <p>私人博客，自用</p>
+        </div>
+    </div>
+    <hr />
+    <div class="am-g">
+        <div class="am-u-lg-4 am-u-md-6 am-u-sm-centered">
+            <br>
+            <div class="am-form">
+                <label for="username">Username:</label>
+                <input type="text" name="" id="username" value="">
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="" id="password" value="">
+                <br>
+                <br/>
+                <div class="am-cf">
+                    <input type="submit" name="" value="Login" class="am-btn am-btn-secondary am-btn-lg am-u-end" onclick="login()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+#end
