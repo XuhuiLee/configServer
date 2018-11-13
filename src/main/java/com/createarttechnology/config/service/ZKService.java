@@ -8,6 +8,7 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * Created by lixuhui on 2018/11/12.
@@ -25,6 +26,11 @@ public class ZKService {
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         client = CuratorFrameworkFactory.newClient(zookeeperConnectionString, retryPolicy);
         client.start();
+    }
+
+    @PreDestroy
+    public void destroy() throws Exception {
+        client.close();
     }
 
     public CuratorFramework getInstance() {
