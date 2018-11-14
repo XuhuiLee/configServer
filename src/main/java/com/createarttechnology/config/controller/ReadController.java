@@ -5,7 +5,7 @@ import com.createarttechnology.config.bean.BaseTemplate;
 import com.createarttechnology.config.service.ReadService;
 import com.createarttechnology.config.util.InnerUtil;
 import com.createarttechnology.logger.Logger;
-import jutil.RequestUtil;
+import com.createarttechnology.jutil.RequestUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

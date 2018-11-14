@@ -5,7 +5,7 @@ import com.createarttechnology.config.util.InnerUtil;
 import com.createarttechnology.logger.Logger;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-import jutil.StringUtil;
+import com.createarttechnology.jutil.StringUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.stereotype.Service;

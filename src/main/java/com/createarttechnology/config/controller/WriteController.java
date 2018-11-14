@@ -5,7 +5,7 @@ import com.createarttechnology.common.ErrorInfo;
 import com.createarttechnology.config.bean.EditConfigReq;
 import com.createarttechnology.config.service.WriteService;
 import com.createarttechnology.logger.Logger;
-import jutil.StringUtil;
+import com.createarttechnology.jutil.StringUtil;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
