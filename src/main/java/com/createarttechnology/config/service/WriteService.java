@@ -4,12 +4,12 @@ import com.createarttechnology.common.BaseResp;
 import com.createarttechnology.common.ErrorInfo;
 import com.createarttechnology.config.bean.EditConfigReq;
 import com.createarttechnology.config.util.InnerUtil;
+import com.createarttechnology.jutil.StringUtil;
 import com.createarttechnology.logger.Logger;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
-import com.createarttechnology.jutil.StringUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
@@ -59,17 +59,17 @@ public class WriteService {
             boolean exist = stat != null && stat.getNumChildren() > 0;
             if (!exist) {
                 // parent path 不存在，创建
-                zkService.getInstance().create().withMode(CreateMode.PERSISTENT).forPath(configNamePath);
+                zkService.getInstance().create().creatingParentContainersIfNeeded().withMode(CreateMode.PERSISTENT).withACL(zkService.getACL()).forPath(configNamePath);
             }
             String configFilePath = InnerUtil.getConfigFilePath(profile, configName);
             // 创建历史记录
-            zkService.getInstance().create().withMode(CreateMode.PERSISTENT_SEQUENTIAL).forPath(configFilePath, InnerUtil.convert(configContent));
+            zkService.getInstance().create().withMode(CreateMode.PERSISTENT_SEQUENTIAL).withACL(zkService.getACL()).forPath(configFilePath, InnerUtil.convert(configContent));
             if (exist) {
                 // 更新trunk节点
                 zkService.getInstance().setData().forPath(configFilePath, InnerUtil.convert(configContent));
             } else {
                 // 创建trunk节点
-                zkService.getInstance().create().withMode(CreateMode.PERSISTENT).forPath(configFilePath, InnerUtil.convert(configContent));
+                zkService.getInstance().create().withMode(CreateMode.PERSISTENT).withACL(zkService.getACL()).forPath(configFilePath, InnerUtil.convert(configContent));
             }
         }
         return new BaseResp(ErrorInfo.SUCCESS);
